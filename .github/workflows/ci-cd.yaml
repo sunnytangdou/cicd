@@ -27,20 +27,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-output
-          path: dist/  # 替换为你的构建输出目录
 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: build-output
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
