@@ -29,10 +29,12 @@ jobs:
 
 
   deploy:
+    runs-on: ubuntu-latest  # 必须添加运行环境
+    needs: build-and-test   # 确保先执行 build-and-test
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: gh-pages  # GitHub Pages 分支
-          publish_dir: ./dist      # 构建文件目录         
+          target_branch: gh-pages
+          publish_dir: ./dist       
