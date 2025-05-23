@@ -26,6 +26,11 @@ jobs:
 
       - name: Build project
         run: npm run build
+      # 明确上传构建产物
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist  # 必须与 Vite 的 outDir 一致
 
 
   deploy:
