@@ -42,9 +42,9 @@ jobs:
     permissions:
       pages: write      # 必须添加 Pages 写入权限
       id-token: write   # 必须添加 ID Token 权限
-    # environment:
-    #   name: github-pages
-    #   url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
