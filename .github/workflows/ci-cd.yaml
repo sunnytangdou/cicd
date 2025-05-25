@@ -57,7 +57,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CICD_DEMO_TOKEN }}
           artifact_name: github-pages
           check_run_id: ${{ needs.build-and-test.result }}
           publish_dir: ./dist
